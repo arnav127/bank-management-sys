@@ -278,7 +278,6 @@ class manager
 		file.open("manager", ios::app);
 		file.getline(name_r, 20, ';');
 		file.getline(pass_r, 20);
-		cout<<"name_r= "<<name_r<<"\tpass_r= "<<pass_r<<endl;
 		file.close();
 	}
 	void input();
