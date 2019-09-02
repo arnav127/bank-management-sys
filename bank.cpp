@@ -137,37 +137,14 @@ void user::input()
 	cin.ignore();
 	cin.getline(add, 50);
 	char cpass[20];
-	int i = 0;
-
 	do
 	{
-		i=0;
 		cout<<"Password: ";
 		char *mypass=getpass("");
 		strcpy(pass,mypass);
-		/*
-		do
-		{
-			pass[i]=getch();
-			cout<<'*';
-			i++;
-		}while((int)pass[i-1]!=13);
-		*/
-		//pass[i-1]='\0';
-		i=0;
 		cout<<"\nConfirm Password: ";
 		mypass=getpass("");
 		strcpy(cpass, mypass);
-		/*
-		do
-		{
-			cpass[i]=getch();
-			cout<<'*';
-			i++;
-
-		}while((int)cpass[i-1]!=13);
-		*/
-		//cpass[i-1]='\0';
 		if(strcmp(pass, cpass))
 			cout<<"\nENTER PASSWORD AGAIN!!\n";
 	}while(strcmp(pass, cpass));
@@ -275,15 +252,6 @@ void luser::input()
 	char *mypass=getpass("");
 	strcpy(pass, mypass);
 	int i=0;
-	/*
-	do
-	{
-		pass[i]=getch();
-		cout<<'*';
-		i++;
-	}while((int)pass[i-1]!=13);
-	pass[i-1]='\0';
-	*/
 }
 int luser::check()
 {
@@ -307,9 +275,10 @@ class manager
 	manager()
 	{
 		ifstream file;
-		file.open("manager.txt", ios::app);
-		file.getline(name_r, 20, ':');
+		file.open("manager", ios::app);
+		file.getline(name_r, 20, ';');
 		file.getline(pass_r, 20);
+		cout<<"name_r= "<<name_r<<"\tpass_r= "<<pass_r<<endl;
 		file.close();
 	}
 	void input();
@@ -332,16 +301,6 @@ void manager::input()
 	cout<<"Pasword: ";
 	char *mypass=getpass("");
 	strcpy(pass, mypass);
-	/*
-	int i=0;
-	do
-	{
-		pass[i]=getch();
-		cout<<'*';
-		i++;
-	}while((int)pass[i-1]!=13);
-	pass[i-1]='\0';
-	*/
 }
 
 class man_trans
