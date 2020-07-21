@@ -2,3 +2,4 @@ bank
 Account
 manager.txt
 Trans
+*.out
