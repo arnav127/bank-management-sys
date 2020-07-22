@@ -93,9 +93,24 @@ void user::input()
 	cout << "Name: ";
 	cin.ignore();
 	cin.getline(name, 20);
-	cout << "Age: ";
-	cin >> age;
-	int flag = 0;
+    do
+    {
+	    cout << "Age: ";
+	    cin >> age;
+	    if(cin.fail())
+        {
+            cin.clear();
+            string temp;
+            cin >> temp;
+            cout << "Invalid Age\n";
+            continue;
+        }
+        if(age > 0 and age < 150)
+            break;
+        else
+            cout <<"Enter correct age\n";
+    }while(true);
+    int flag = 0;
 	do
 	{
 		cout << "Mobile Number: ";
